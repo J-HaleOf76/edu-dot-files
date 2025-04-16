@@ -242,9 +242,9 @@
 ;   create mask = 0765
 
 # Change the username - create the SHARED folder
-;[SAMBASHARE]
-;path = /home/erik/SHARED
-;browseable = yes
-;guest ok = yes
-;public = yes
-;writable = yes
+[SAMBASHARE]
+path = /home/erik/SHARED
+browseable = yes
+guest ok = yes
+public = yes
+writable = yes
