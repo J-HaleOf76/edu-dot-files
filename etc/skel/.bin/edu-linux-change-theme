@@ -162,11 +162,31 @@ apply_index() {
 	fi
 }
 
+apply_environment() {
+    if [ -f /etc/environment ]; then
+        echo
+        tput setaf 3
+        echo "################################################################"
+        echo "################### Applying GTK_THEME in /etc/environment"
+        echo "################################################################"
+        tput sgr0
+        echo
+
+        # Replace existing GTK_THEME line (commented or not), or append it
+        if grep -qE '^\s*#?\s*GTK_THEME=' /etc/environment; then
+            sudo sed -i "s|^\s*#\?\s*GTK_THEME=.*|GTK_THEME=\"$THEME\"|g" /etc/environment
+        else
+            echo "GTK_THEME=\"$THEME\"" | sudo tee -a /etc/environment > /dev/null
+        fi
+    fi
+}
+
 apply_dconf
 apply_gtk3
 apply_xfce
 apply_gtkrc
 apply_index
+apply_environment
 
 echo
 tput setaf 3
