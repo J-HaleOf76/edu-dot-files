@@ -25,23 +25,10 @@
 #tput setaf 7 = gray 
 #tput setaf 8 = light blue
 ##################################################################################################################
-echo "Changing logo when possible"
-if [ -f /usr/local/bin/get-nemesis-on-arcolinux ]; then
-    sudo cp /usr/local/share/arcolinux/release/os-release-arch /usr/lib/os-release
-    sudo cp /usr/local/share/arcolinux/release/os-release-arch /usr/lib/os-release-arcolinux
-fi
 
-if [ -f /usr/local/bin/get-nemesis-on-carli ]; then
-    sudo cp /usr/local/share/arcolinux/release/os-release-arch /usr/lib/os-release
-    sudo cp /usr/local/share/arcolinux/release/os-release-arch /usr/lib/os-release-arcolinux
-fi
+sudo pacman -Sy linux-xanmod-edge-x64v3 linux-xanmod-edge-x64v3-headers --noconfirm --needed
 
-if [ -f /usr/local/bin/get-nemesis-on-aa ]; then
-    sudo cp /usr/local/share/arcolinux/release/os-release-arch /usr/lib/os-release
-    sudo cp /usr/local/share/arcolinux/release/os-release-arch /usr/lib/os-release-arcolinux
-fi
-
-if [ -f /usr/local/bin/get-nemesis-on-alci ]; then
-    sudo cp /usr/local/share/arcolinux/release/os-release-arch /usr/lib/os-release
-    sudo cp /usr/local/share/arcolinux/release/os-release-arch /usr/lib/os-release-arcolinux
-fi
+echo
+echo "###############################################################################"
+echo "###                DONE - YOU CAN CLOSE THIS WINDOW                        ####"
+echo "###############################################################################"
