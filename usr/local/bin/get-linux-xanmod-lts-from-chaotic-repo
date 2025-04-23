@@ -26,29 +26,7 @@
 #tput setaf 8 = light blue
 ##################################################################################################################
 
-sudo cp -v /etc/pacman.conf /etc/pacman.conf.script
-
-sh /usr/local/bin/arcolinux-fix-pacman-conf
-sh /usr/local/bin/toggle-arcolinux-repo
-
-# Set the file path
-FILE="/etc/pacman.conf"
-
-# Search for "chaotic-aur" in the specified file
-if ! grep -q "chaotic-aur" "$FILE"; then
-    echo "Adding chaotic-aur repository to $FILE"
-    # Append the configuration for chaotic-aur to the file
-    {
-echo ""
-echo "[chaotic-aur]"
-echo "SigLevel = Required DatabaseOptional"
-echo "Include = /etc/pacman.d/chaotic-mirrorlist"
-    } | sudo tee -a "$FILE"
-fi
-
-sudo pacman -Sy linux-xanmod-edge-x64v3 linux-xanmod-edge-x64v3-headers --noconfirm --needed
-
-sudo cp -v /etc/pacman.conf.script /etc/pacman.conf
+sudo pacman -Sy linux-xanmod-lts linux-xanmod-lts-headers --noconfirm --needed
 
 echo
 echo "###############################################################################"
