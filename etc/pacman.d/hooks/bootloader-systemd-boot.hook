@@ -3,7 +3,6 @@ Type = Package
 Operation = Install
 Operation = Upgrade
 Target = systemd
-Target = /boot
 
 [Action]
 Description = Gracefully upgrading systemd-boot...
