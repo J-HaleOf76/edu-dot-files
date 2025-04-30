@@ -38,8 +38,8 @@ sudo pacman -Rs --noconfirm dropbox
 sudo pacman -Rs --noconfirm insync
 sudo pacman -Rs --noconfirm telegram-desktop
 sudo pacman -Rs --noconfirm discord
-sudo pacman -Rs --noconfirm signal-desktop
 sudo pacman -Rs --noconfirm signal-in-tray
+sudo pacman -Rs --noconfirm signal-desktop
 
 sudo rm /etc/skel/.config/autostart/discord.desktop
 sudo rm /etc/skel/.config/autostart/dropbox.desktop
