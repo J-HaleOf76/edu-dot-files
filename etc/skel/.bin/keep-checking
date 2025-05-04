@@ -5,17 +5,23 @@ year=$(date +%Y)
 month=$(date +%m)
 pattern="$year.$month"
 
-url="https://mirror.rackspace.com/archlinux/iso/"
+# URLs to check
+urls=(
+    "https://mirror.rackspace.com/archlinux/iso/"
+    "https://geo.mirror.pkgbuild.com/iso/"
+)
 
-echo "Monitoring $url for folder with pattern: $pattern"
+echo "Monitoring mirrors for folder with pattern: $pattern"
 
 while true; do
-    if curl -s "$url" | grep -q "$pattern"; then
-        echo "✅ Folder with $pattern found on mirror!"
-        # Optionally: play sound or break
-        # break
-    else
-        echo "⏳ No folder with $pattern yet. Checking again in 60 seconds..."
-    fi
+    for url in "${urls[@]}"; do
+        if curl -s "$url" | grep -q "$pattern"; then
+            echo "✅ Folder with $pattern found on $url"
+        else
+            echo "⏳ No folder with $pattern yet on $url"
+        fi
+    done
+    echo "Sleeping for 60 seconds..."
     sleep 60
 done
+
