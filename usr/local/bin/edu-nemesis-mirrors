@@ -35,7 +35,7 @@ else
 fi
 
 sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup
-sudo cp /usr/local/share/edu/mirrorlist /etc/pacman.d/mirrorlist
+sudo cp -v /usr/local/share/edu/mirrorlist /etc/pacman.d/mirrorlist
 
 echo "###############################################################################"
 echo "###                DONE - YOU CAN CLOSE THIS WINDOW                        ####"
