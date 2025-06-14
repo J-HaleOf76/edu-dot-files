@@ -26,7 +26,7 @@
 #tput setaf 8 = light blue
 ##################################################################################################################
 
-tput setaf 1;
+tput setaf 3;
 echo "###############################################################################"
 echo "###      SCRIPT TO REMOVE ELEMENTS WITH NO QUESTIONS ASKED"
 echo "###"
@@ -38,7 +38,19 @@ tput sgr0
 
 #######broadcom and realtek
 
-sudo pacman -Rs broadcom-wl-dkms rtl8821cu-morrownr-dkms-git --noconfirm
+remove_package() {
+    for package in "$@"; do
+        if pacman -Q "$package" &>/dev/null; then
+            echo "$package is installed. Removing..."
+            sudo pacman -Rns --noconfirm "$package"
+        else
+            echo "$package is not installed. Skipping..."
+        fi
+    done
+}
+
+# Usage
+remove_package broadcom-wl-dkms rtl8821cu-morrownr-dkms-git
 
 # Ensure at least one kernel remains
 if pacman -Qi linux &> /dev/null && pacman -Qi linux-headers &> /dev/null; then
