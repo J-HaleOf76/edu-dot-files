@@ -44,7 +44,7 @@ remove_drivers() {
             echo "$package is installed. Removing..."
             sudo pacman -Rns --noconfirm "$package"
         else
-            echo "$package is not installed. Skipping..."
+            echo "$package is not installed."
         fi
     done
 }
