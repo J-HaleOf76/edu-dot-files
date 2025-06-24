@@ -47,7 +47,6 @@ tput setaf 9
 echo "----------------------------------------------------"
 tput sgr0; echo "Iso: "; tput setaf 9; cat /etc/dev-rel; echo "----------------------------------------------------"
 tput sgr0; echo -n "BIOS or UEFI: "; tput setaf 9; [ -d /sys/firmware/efi ] && echo "uefi" || echo "bios"; echo "----------------------------------------------------"
-tput sgr0; echo -n "Boot system: "; tput setaf 9; sed '2d' /bootloader; echo "----------------------------------------------------"
 tput sgr0; echo -n "Mounted Filesystems: "; tput setaf 9
 mount | grep "^/dev" | awk '{print $1, $5}' | sort | paste -sd "  "
 echo "----------------------------------------------------"
