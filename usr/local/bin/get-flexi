@@ -31,7 +31,7 @@
 echo
 tput setaf 3
 echo "################################################################"
-echo "################### Start clone arcolinux-nemesis"
+echo "####### Start git clone dwm flexi created with flexipatch"
 echo "################################################################"
 tput sgr0
 echo
@@ -46,8 +46,9 @@ fi
 
 [ -d $HOME"/DATA" ] || mkdir -p $HOME"/DATA"
 cd ~/DATA
-git clone https://github.com/erikdubois/arcolinux-nemesis
+git clone https://github.com/erikdubois/dwm-flexipatch.git
 
+echo "Run the rebuild script in dwm-flexipatch folder and logout"
 echo "###############################################################################"
 echo "###                DONE - YOU CAN CLOSE THIS WINDOW                        ####"
 echo "###############################################################################"
